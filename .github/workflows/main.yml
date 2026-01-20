@@ -27,7 +27,6 @@ jobs:
           --exclude='.git' \
           --exclude='.github' \
           --exclude='tests' \
-          --exclude='vendor' \
           -e "ssh -o StrictHostKeyChecking=no" \
           ./ \
           ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:${{ secrets.PROD_MODULE_PATH }} || true
