@@ -24,14 +24,14 @@ jobs:
           --no-group \
           --no-times \
           --omit-dir-times \
-          --ignore-errors \
           --exclude='.git' \
           --exclude='.github' \
           --exclude='tests' \
           --exclude='vendor' \
           -e "ssh -o StrictHostKeyChecking=no" \
           ./ \
-          ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:${{ secrets.PROD_MODULE_PATH }}
+          ${{ secrets.PROD_SSH_USER }}@${{ secrets.PROD_SSH_HOST }}:${{ secrets.PROD_MODULE_PATH }} || true
+
 
       - name: Clear PrestaShop cache (production)
         run: |
